@@ -12,21 +12,5 @@
   "n c ";
 }
 
-.header {
-grid-area: h;
-background-color: aqua;
-}
-.header img {
-  width: 100px;
-}
-.nav {
-grid-area: n;
-background-color: brown;
-}
-.content {
-grid-area: c;
-background-color: crimson;
-}
-.content img {
-  height: 500px;
-}
+
+
