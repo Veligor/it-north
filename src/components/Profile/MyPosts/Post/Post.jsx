@@ -5,10 +5,9 @@ const Post = (props) => {
   return (
     <div>
       <div className={s.photo}>
-        <img src="https://i.pinimg.com/736x/fe/03/a5/fe03a5ed946a344bc971831188fb1ee4.jpg"></img>{" "}
-        post 1
-        <div>
-          <span>like</span>
+        <img src="https://w.forfun.com/fetch/50/50c3e573a4cea5c3db4cf9e417967918.jpeg"></img>{" "}
+{props.message}        <div>
+          <span>like </span>{props.like}
         </div>
       </div>
     </div>
@@ -16,3 +15,4 @@ const Post = (props) => {
 };
 
 export default Post;
+  
