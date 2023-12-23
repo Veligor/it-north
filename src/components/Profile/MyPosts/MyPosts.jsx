@@ -4,12 +4,8 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
   
-let postData = [
-  {id: 1, message: "Hi, how are you?", like: "1"},
-  {id: 2, message:"Your clean car", like:"2"},
-  {id: 3, message:"Welcome", like:"3"},
-]
-let postElement = postData.map(p => <Post message={p.message} like={p.like} />)
+
+let postElement = props.postData.map( p => <Post message={p.message} like={p.like} />)
   return (
     <div className={s.postBlock}>
       MyPosts
@@ -29,3 +25,4 @@ let postElement = postData.map(p => <Post message={p.message} like={p.like} />)
 };
 
 export default MyPosts;
+ 
