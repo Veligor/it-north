@@ -10,7 +10,7 @@ function App(props) {
   return (
     <div className="app-wrapper">
       <Header />
-      <Navbar />
+      <Navbar company={props.appState.navbarPage.company}/>
       <div className="app-wrapper-content">
         <Routes>
           <Route path="/profile" element={<Profile state={props.appState.profilePage}/>} />

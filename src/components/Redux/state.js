@@ -17,11 +17,18 @@ let state = {
   },
   profilePage: {
     postData: [
-      { id: 1, message: "Hi, how are you?", like: "1" },
-      { id: 2, message: "Your clean car", like: "2" },
-      { id: 3, message: "Welcome", like: "3" },
+      { id: 1, message: "Hi, how are you?", like: "5" },
+      { id: 2, message: "Your clean car", like: "12" },
+      { id: 3, message: "Welcome", like: "6" },
     ],
   },
+  navbarPage: {
+    company: [
+      { name: "Савва", id: "1" },
+      { name: "Машулька", id: "2" },
+      { name: "Варенька", id: "3" },
+    ]
+  }
 };
 
 export default state;
