@@ -1,3 +1,5 @@
+import { renderThree } from "../../render.js";
+
 let state = {
   dialogPage: {
     dialogsData: [
@@ -24,11 +26,25 @@ let state = {
   },
   navbarPage: {
     company: [
-      { name: "Савва", id: "1" },
+      { name: "Савва Горбачев", id: "1" },
       { name: "Машулька", id: "2" },
-      { name: "Варенька", id: "3" },
+      { name: "Варенька Горбачева", id: "3" },
     ]
   }
 };
 
+
+export let express = () => {
+  alert("Hey")
+}
 export default state;
+
+export let addPost = (postMessage) => {
+  let newPost = {
+    id: 5, 
+    message: postMessage,
+    like: 18
+  }
+  state.profilePage.postData.push(newPost)
+  renderThree(state);
+}
