@@ -1,4 +1,6 @@
-import { renderThree } from "../../render.js";
+let renderThree = () => {
+  console.log("jfj");
+};
 
 let state = {
   dialogPage: {
@@ -18,6 +20,7 @@ let state = {
     ],
   },
   profilePage: {
+    newPostText: "sunny",
     postData: [
       { id: 1, message: "Hi, how are you?", like: "5" },
       { id: 2, message: "Your clean car", like: "12" },
@@ -29,22 +32,25 @@ let state = {
       { name: "Савва Горбачев", id: "1" },
       { name: "Машулька", id: "2" },
       { name: "Варенька Горбачева", id: "3" },
-    ]
-  }
+    ],
+  },
 };
-
-
-export let express = () => {
-  alert("Hey")
-}
-export default state;
-
-export let addPost = (postMessage) => {
+export const addPost = () => {
   let newPost = {
-    id: 5, 
-    message: postMessage,
-    like: 18
-  }
-  state.profilePage.postData.push(newPost)
+    id: 5,
+    message: state.profilePage.newPostText,
+    like: 18,
+  };
+  state.profilePage.postData.push(newPost);
+  state.profilePage.newPostText = "";
   renderThree(state);
-}
+};
+export const valPost = (newText) => {
+  //alert("Hey")
+  state.profilePage.newPostText = newText;
+  renderThree(state);
+};
+export const subscribe = (observer) => {
+  renderThree = observer;
+};
+export default state;
