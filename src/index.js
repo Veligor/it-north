@@ -4,8 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import state, { subscribe } from "./components/Redux/state";
-import { addPost, valPost } from "./components/Redux/state";
+import store from "./components/Redux/state";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -13,13 +12,13 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App appState={state} addPost={addPost} valPost={valPost} />
+        <App appState={store.getState()} addPost={store.addPost.bind(store)} valPost={store.valPost.bind(store)} />
       </BrowserRouter>
     </React.StrictMode>
   );
 }
-renderThree(state);
-subscribe(renderThree)
+renderThree(store._state);
+store.subscribe(renderThree)
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
