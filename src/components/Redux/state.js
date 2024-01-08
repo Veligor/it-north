@@ -39,6 +39,9 @@ let store = {
   getState() {
     return this._state;
   },
+  subscribe(observer) {
+    this.renderThree = observer;
+  },
   addPost() {
     let newPost = {
       id: 5,
@@ -50,12 +53,24 @@ let store = {
     this.renderThree(this.state);
   },
   valPost(newText) {
-    //alert("Hey")
     this._state.profilePage.newPostText = newText;
     this.renderThree(this._state);
   },
-  subscribe(observer) {
-    this.renderThree = observer;
+
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        like: 18,
+      };
+      this._state.profilePage.postData.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this.renderThree(this.state);
+    } else if (action.type === "VALPOST") {
+      this._state.profilePage.newPostText = action.text;
+      this.renderThree(this._state);
+    }
   },
 };
 

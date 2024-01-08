@@ -6,7 +6,7 @@ const MyPosts = (props) => {
   let newTextElement = React.createRef();
 
   let addPost = () => {
-    props.addPost();
+    props.dispatch({type:"ADD-POST"});
   };
 
   let postElement = props.state.postData.map((p) => (
@@ -14,7 +14,7 @@ const MyPosts = (props) => {
   ));
   let onPostChange = () => {
     let text = newTextElement.current.value;
-    props.valPost(text);
+    props.dispatch({type: "VALPOST", text });
   };
   return (
     <div className={s.postBlock}>
