@@ -1,3 +1,9 @@
+const ADD_POST = "ADD-POST";
+const VALPOST = "VALPOST";
+
+const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY"
+const  SEND_MESSAGE = "SEND-MESSAGE"
+
 let store = {
   renderThree() {
     console.log("jfj");
@@ -19,6 +25,7 @@ let store = {
         { send: "SavForever together", id: "4" },
         { send: "leader", id: "5" },
       ],
+      newMessageText: "hello"
     },
     profilePage: {
       newPostText: "sunny",
@@ -56,9 +63,9 @@ let store = {
     this._state.profilePage.newPostText = newText;
     this.renderThree(this._state);
   },
-
+  
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 5,
         message: this._state.profilePage.newPostText,
@@ -67,11 +74,38 @@ let store = {
       this._state.profilePage.postData.push(newPost);
       this._state.profilePage.newPostText = "";
       this.renderThree(this.state);
-    } else if (action.type === "VALPOST") {
+    } else if (action.type === VALPOST) {
       this._state.profilePage.newPostText = action.text;
       this.renderThree(this._state);
+    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+      this._state.dialogPage.newMessageText = action.body;
+      this.renderThree(this._state);
+    } else if(action.type === SEND_MESSAGE) {
+      let body = this._state.dialogPage.newMessageText;
+      this._state.dialogPage.messagesData.push({ send: body, id: 6 })
+      this._state.dialogPage.newMessageText = "";
+      this.renderThree(this._state)
     }
   },
 };
-
+export let addPostActionCreator = () => {
+  return {
+    type: ADD_POST
+  }
+}
+export  let upDataNewPostTextActionCreator = (text) => {
+  return {
+    type: VALPOST, text
+  }
+}
+export  let sendMessageCreator = (text) => {
+  return {
+    type: SEND_MESSAGE
+  }
+}
+export  let updateNewMessageBodyCreator = (body) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_BODY, body
+  }
+}
 export default store;

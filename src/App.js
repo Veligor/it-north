@@ -14,7 +14,7 @@ function App(props) {
       <div className="app-wrapper-content">
         <Routes>
           <Route path="/profile" element={<Profile state={props.appState.profilePage} dispatch={props.dispatch}/>} />
-          <Route path="/dialogs" element={<Dialogs state={props.appState.dialogPage}/>} />
+          <Route path="/dialogs" element={<Dialogs state={props.appState.dialogPage} dispatch={props.dispatch}/>} />
         </Routes>
       </div>
     </div>

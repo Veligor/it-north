@@ -1,12 +1,14 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import {addPostActionCreator, upDataNewPostTextActionCreator} from "./../../Redux/state";
+
 
 const MyPosts = (props) => {
   let newTextElement = React.createRef();
 
   let addPost = () => {
-    props.dispatch({type:"ADD-POST"});
+    props.dispatch(addPostActionCreator());
   };
 
   let postElement = props.state.postData.map((p) => (
@@ -14,7 +16,7 @@ const MyPosts = (props) => {
   ));
   let onPostChange = () => {
     let text = newTextElement.current.value;
-    props.dispatch({type: "VALPOST", text });
+    props.dispatch(upDataNewPostTextActionCreator(text));
   };
   return (
     <div className={s.postBlock}>

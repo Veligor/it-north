@@ -2,14 +2,16 @@ import React from "react";
 import s from "./Dialog.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-
+import {updateNewMessageBodyCreator, sendMessageCreator} from "./../Redux/state"
 const Dialogs = (props) => {
   
-  let messageElement = React.createRef();
-
-  let addMessage = () => {
-    let text = messageElement.current.value;
-    alert(text)
+  
+  let onNewMessageChange = (event) => {
+    let body = event.target.value
+    props.dispatch(updateNewMessageBodyCreator(body))
+  }
+  let onSendMessageClick = () => {
+    props.dispatch(sendMessageCreator())
   }
 
   let dialogsElements = props.state.dialogsData.map((n) => (
@@ -21,10 +23,14 @@ const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
       <div className={s.human}>{dialogsElements} 
-      <textarea ref={messageElement}></textarea>
-      <div><button onClick={addMessage}>addMessage</button></div>
       </div>
-      <div className={s.messages}>{messagesElements}</div>
+      <div className={s.messages}>
+        <div>{messagesElements}</div>
+        <div>
+        <textarea value={props.state.newMessageText} onChange={onNewMessageChange}></textarea>
+        </div>
+        <div><button onClick={onSendMessageClick}>addMessage</button></div>
+        </div>
     </div>
   );
 };
