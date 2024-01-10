@@ -10,6 +10,7 @@ import store from "./components/Redux/redux-store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
  function renderThree(state) {
+  
   root.render(
     <React.StrictMode>
       <BrowserRouter>
