@@ -1,7 +1,18 @@
 const ADD_POST = "ADD-POST";
 const VALPOST = "VALPOST";
 
-const profileReducer = (state, action) => {
+
+let initialState = {
+  newPostText: "sunny",
+  postData: [
+    { id: 1, message: "Hi, how are you?", like: "5" },
+    { id: 2, message: "Your clean car", like: "12" },
+    { id: 3, message: "Welcome", like: "6" },
+  ]
+}
+
+const profileReducer = (state = initialState, action) => {
+
   switch (action.type) {
     case ADD_POST:
       let newPost = {
