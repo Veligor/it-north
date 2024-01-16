@@ -10,7 +10,7 @@ const MyPosts = (props) => {
     props.addPost();
   };
 
-  let postElement = props.state.postData.map((p) => (
+  let postElement = props.profilePage.postData.map((p) => (
     <Post message={p.message} like={p.like} />
   ));
   let onPostChange = () => {
@@ -25,7 +25,7 @@ const MyPosts = (props) => {
           <textarea
             onChange={onPostChange}
             ref={newTextElement}
-            value={props.state.newPostText}
+            value={props.profilePage.newPostText}
           />
         </div>
         <div>

@@ -7,7 +7,7 @@ import Friends from "./Friends"
 
 
 const Navbar = (props) => {
-  let friendsSheet = props.company.map((n) => <Friends name={n.name} />);
+  let friendsSheet = props.navbarPage.company.map((n) => <Friends name={n.name} key={n.id}/>);
   
   const SelectedClass = ({ isActive }) => (isActive ? s.activeLink : "");
   return (
@@ -20,6 +20,11 @@ const Navbar = (props) => {
       <div className={s.item}>
         <NavLink to="/dialogs" className={SelectedClass}>
           Message
+        </NavLink>
+      </div>
+      <div className={s.item}>
+        <NavLink to="/users" className={SelectedClass}>
+         Users
         </NavLink>
       </div>
       <div className={s.item}>

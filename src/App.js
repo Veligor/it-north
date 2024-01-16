@@ -1,20 +1,23 @@
 import "./App.css";
 import React from "react";
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import { Route, Routes } from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import NavbarContainer from "./components/Navbar/NavbarContainer";
+import Users from "./components/Users/Users";
 
 function App(props) {
+  
   return (
     <div className="app-wrapper">
       <Header />
-      <Navbar company={props.appState.navbarPage.company}/>
+      <NavbarContainer />
       <div className="app-wrapper-content">
         <Routes>
-          <Route path="/profile" element={<Profile state={props.appState.profilePage} dispatch={props.dispatch}/>} />
-          <Route path="/dialogs" element={<DialogsContainer state={props.appState.dialogPage} dispatch={props.dispatch}/>} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/dialogs" element={<DialogsContainer />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
       </div>
     </div> 

@@ -1,7 +1,6 @@
 const ADD_POST = "ADD-POST";
 const VALPOST = "VALPOST";
 
-
 let initialState = {
   newPostText: "sunny",
   postData: [
@@ -20,19 +19,29 @@ const profileReducer = (state = initialState, action) => {
         message: state.newPostText,
         like: 18,
       };
-      state.postData.push(newPost);
-      state.newPostText = "";
-      break;
-    //return state
+      return {
+        ...state,
+        newPostText: '',
+        postData: [...state.postData, newPost ]
+      }
+      // let copyState = {...state}
+      // copyState.postData.push(newPost);
+      // copyState.newPostText = "";
+   
     case VALPOST:
-      state.newPostText = action.text;
-      break;
-    //return state
+      return {
+        ...state,
+        newPostText: action.text
+      }
+
+      // let newState = {...state}
+      // newState.newPostText = action.text;
+     
+    
     default:
       return state;
   }
 
-  return state;
 };
 export default profileReducer;
 
