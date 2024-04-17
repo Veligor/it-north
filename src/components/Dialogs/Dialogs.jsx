@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import s from "./Dialog.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
@@ -21,6 +22,7 @@ const Dialogs = (props) => {
   let messagesElements = props.dialogPage.messagesData.map((m) => (
     <Message send={m.send} key={m.id}/>
   ));
+
   return (
     <div className={s.dialogs}>
       <div className={s.human}>{dialogsElements} 
