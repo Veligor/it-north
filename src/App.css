@@ -14,7 +14,7 @@
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: crimson; 
+    background-color: #2b60d2 
 }
 .app-wrapper-content img {
 width: 700px;
