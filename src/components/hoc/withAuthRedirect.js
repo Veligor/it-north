@@ -22,5 +22,5 @@ export const withAuthRedirect = (Component) => {
    return ConnectAuthRedirectComponent
 }
 
-
+ 
  

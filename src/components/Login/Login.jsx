@@ -46,15 +46,25 @@
 // }
 // export default Login;
 
-
+import s from "./Login.module.css"
 import React from 'react';
 import { Formik } from 'formik';
+import {login} from "./../Redux/auth-reducer"
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from "react-router-dom";
 
-const Login = () => (
-  <div>
+const Login = () => {
+
+  const isAuth = useSelector((state) => state.auth.isAuth)
+  const dispatch = useDispatch()
+ if(isAuth) {
+  return <Navigate to={"/profile"}/>
+ }
+ return <div>
+  
     <h1>Enter login</h1>
     <Formik
-      initialValues={{ email: '', password: '',  }}
+      initialValues={{ email: '', password: '', rememberMe: false }}
       validate={values => {
         const errors = {};
         if (!values.email) {
@@ -67,7 +77,10 @@ const Login = () => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values)
+        const {email,password,username} = values
+       // dispatch(login(values.email, values.password, values.rememberMe))
+        dispatch(login(email,password,username))
+        //console.log(values)
           // alert(JSON.stringify(values, null, 2));
            setSubmitting(false);
      
@@ -75,6 +88,8 @@ const Login = () => (
     >
       {({
         values,
+        isValid,
+        setValues,
         errors,
         touched,
         handleChange,
@@ -83,7 +98,7 @@ const Login = () => (
         isSubmitting,
         /* and other goodies */
       }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <input
             type="email"
             name="email"
@@ -98,22 +113,24 @@ const Login = () => (
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}
+            placeholder='password'
           />
           <input
             type="checkbox"
-            name="checkbox"
+            name="rememberMe"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.checkbox}
           />
           {errors.password && touched.password && errors.password}
-          <button type="submit" disabled={isSubmitting}>
+          <button type="submit" disabled={isSubmitting} >
             Войти
           </button>
+          {/* <div className={s.blockError}>errors</div> */}
         </form>
       )}
     </Formik>
   </div>
-);
+}
 
 export default Login;
