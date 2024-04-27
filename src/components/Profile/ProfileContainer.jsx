@@ -10,8 +10,10 @@ const ProfileContainer = (props) => {
 
  let {profileId} = useParams();
  if(!profileId) {
-  // profileId = 2  
-     profileId = 29369  
+  profileId =  props.yourSelfId
+   if(!profileId) {
+    profileId = 29369 
+}
   }
   console.log(profileId)
   React.useEffect(() => {
@@ -31,7 +33,9 @@ const ProfileContainer = (props) => {
 
 let mapStateToProps = (state) => ({
 profile: state.profilePage.profile,
-status: state.profilePage.status
+status: state.profilePage.status,
+yourSelfId: state.auth.id,
+isAuth: state.auth.isAuth
 })
 
 //export default connect(mapStateToProps, {setUserProfile, getUserProfileCreator}) (AuthRedirectComponent);

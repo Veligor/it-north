@@ -8,10 +8,10 @@ import { NavLink } from "react-router-dom";
 
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    this.props.getAuthUserDataThunkCreator()
+  // componentDidMount() {
+  //   this.props.getAuthUserDataThunkCreator()
      
-  }
+  // }
 
   render() {
   return  <Header {...this.props}/>;

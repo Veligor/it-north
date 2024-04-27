@@ -52,6 +52,12 @@ import { Formik } from 'formik';
 import {login} from "./../Redux/auth-reducer"
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from "react-router-dom";
+import * as yup from 'yup'
+
+const validationSchema = yup.object().shape({
+  email: yup.string().required('Заполни Осел').email('Invalid email address'),
+  password: yup.string().required('OSEL')
+})
 
 const Login = () => {
 
@@ -64,18 +70,19 @@ const Login = () => {
   
     <h1>Enter login</h1>
     <Formik
+    validationSchema={validationSchema}
       initialValues={{ email: '', password: '', rememberMe: false }}
-      validate={values => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
+      // validate={values => {
+      //   const errors = {};
+      //   if (!values.email) {
+      //     errors.email = 'Required';
+      //   } else if (
+      //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+      //   ) {
+      //     errors.email = 'Invalid email address';
+      //   }
+      //   return errors;
+      // }}
       onSubmit={(values, { setSubmitting }) => {
         const {email,password,username} = values
        // dispatch(login(values.email, values.password, values.rememberMe))
@@ -104,7 +111,7 @@ const Login = () => {
             name="email"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.email}
+            //value={values.email}
           />
           {errors.email && touched.email && errors.email}
           <input
@@ -112,7 +119,7 @@ const Login = () => {
             name="password"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={values.password}
+           // value={values.password}
             placeholder='password'
           />
           <input
@@ -126,7 +133,6 @@ const Login = () => {
           <button type="submit" disabled={isSubmitting} >
             Войти
           </button>
-          {/* <div className={s.blockError}>errors</div> */}
         </form>
       )}
     </Formik>

@@ -8,9 +8,23 @@ import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Users/usersContainer";
 import News from "./components/News/News"
 import Login from "./components/Login/Login";
+import { useEffect } from "react";
+import {initializeApp} from "./components/Redux/app-reducer"
+import { useDispatch, useSelector } from "react-redux";
+import Preloader from "./components/hhh/Preloader";
 
 function App(props) {
+
+ let iditialiazed = useSelector((state) => state.app.iditialiazed)
+ let dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initializeApp())
+  }, [iditialiazed])
   
+if(!iditialiazed) {
+  return <Preloader />
+}
+
   return (
     <div className="app-wrapper">
       <HeaderContainer />
