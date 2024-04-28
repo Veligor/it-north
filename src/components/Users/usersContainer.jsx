@@ -3,7 +3,7 @@ import {unfollow, follow,  toggleFollowingProgress, getUsersThunkCreator, change
 import Users from "./Users";
 import React from "react";
 import preloader from "./../../photo/images/21.gif";
-import { getUsers, userApi } from "../api/api";
+import {users, getTotalUserCount, getPageSize, getCurrentPage, getIsFetching, getFollowingInProgress} from "./../Redux/selectors-users"
 
 class UsersAPIComponent extends React.Component {
    componentDidMount() {
@@ -39,12 +39,12 @@ class UsersAPIComponent extends React.Component {
 
 const mapStateToProps = (state) => {
    return {
-      users: state.usersPage.users,
-      totalUserCount: state.usersPage.totalUserCount,
-      pageSize: state.usersPage.pageSize,
-      currentPage: state.usersPage.currentPage,
-      isFetching: state.usersPage.isFetching,
-      followingInProgress: state.usersPage.followingInProgress
+      users: users(state),
+      totalUserCount: getTotalUserCount(state),
+      pageSize: getPageSize(state),
+      currentPage: getCurrentPage(state),
+      isFetching: getIsFetching(state),
+      followingInProgress: getFollowingInProgress(state)
    }
 }
 
