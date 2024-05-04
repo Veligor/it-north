@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 
-const MyPosts = (props) => {
+const MyPosts = memo(function MyPosts (props)  {
   let newTextElement = React.createRef();
 
   let onAddPost = () => {
@@ -35,6 +35,7 @@ const MyPosts = (props) => {
       <div className={s.posts}>{postElement}</div>
     </div>
   );
-};
+})
+
 
 export default MyPosts;

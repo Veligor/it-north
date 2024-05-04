@@ -15,7 +15,7 @@ const ProfileContainer = (props) => {
     profileId = 29369 
 }
   }
-  console.log(profileId)
+
   React.useEffect(() => {
     props.getUserProfileCreator(profileId)
     props.getStatusCreator(profileId)

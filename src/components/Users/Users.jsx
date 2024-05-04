@@ -2,32 +2,15 @@ import React from "react";
 import style from "./users.module.css";
 import photo from "./../../photo/images/User.png";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
-import { userApi } from "../api/api";
+import Paginator from "./Paginator";
 
 const Users = (props) => {
 
-  let pageCount = Math.ceil(props.totalUserCount / props.pageSize);
-  let pages = [];
-  for (let i = 1; i <= pageCount; i++) {
-    pages.push(i);
-  }
-
   return (
     <div className={style.main}>
-      <div>
-        {pages.map((p) => {
-          return (
-            <span
-              className={props.currentPage === p && style.active}
-              onClick={(e) => {
-                props.onPageChange(p);
-              }}>
-              {p}
-            </span>
-          );
-        })}
-      </div>
+    
+      <Paginator  totalUserCount={props.totalUserCount} pageSize={props.pageSize} currentPage={props.currentPage} onPageChange={props.onPageChange}/>
+      
       {props.users.map((u) => (
         <div key={u.id}>
           <span>
@@ -54,7 +37,7 @@ const Users = (props) => {
                    
                   }}
                 >
-                  follow
+                  follow 
                 </button>
               )}
             </div>
