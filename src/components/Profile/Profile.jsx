@@ -11,7 +11,7 @@ if(!props.profile) {
 
   return (
     <div>
-      <ProfileInfo profile={props.profile} status={props.status} upDateStatusCreator={props.upDateStatusCreator} />
+      <ProfileInfo savePhoto={props.savePhoto} isOwner={props.isOwner} profile={props.profile} status={props.status} upDateStatusCreator={props.upDateStatusCreator} />
       <MyPostsContainer  />
     </div>
   );

@@ -4,7 +4,7 @@ import photo from "./../../photo/images/User.png";
 import { NavLink } from "react-router-dom";
 import Paginator from "./Paginator";
 
-const Users = (props) => {
+const Users = (props) => { 
 
   return (
     <div className={style.main}>

@@ -4,6 +4,7 @@ const ADD_POST = "ADD-POST";
 const VALPOST = "VALPOST";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const SET_STATUS = "SET-STATUS";
+const SAVE_PHOTO_SUCCESS = "SAVE_PHOTO_SUCCESS"
 
 let initialState = {
   newPostText: "sunny",
@@ -41,6 +42,10 @@ const profileReducer = (state = initialState, action) => {
       case SET_STATUS: {
         return {...state, status: action.status}
       }
+      case SAVE_PHOTO_SUCCESS: {
+        debugger
+        return {...state, profile: {...state.profile, photos: action.photos}}
+      }
     
     default:
       return state;
@@ -68,6 +73,9 @@ export let upDataNewPostTextActionCreator = (text) => {
 export let setUserProfile = (profile) => {
 return {type: SET_USER_PROFILE, profile}
 }
+export let savePhotoSuccess= (photos) => {
+return {type: SAVE_PHOTO_SUCCESS, photos}
+}
 
 export const getUserProfileCreator = (profileId) => (dispatch) => {
   
@@ -89,6 +97,16 @@ export const upDateStatusCreator = (status) => (dispatch) => {
   .then((response) => {
     if(response.data.resultCode === 0) {
       dispatch(setStatus(status));
+    }
+    
+  })
+}
+export const savePhoto = (file) => (dispatch) => {
+  
+  return   profileApi.savePhoto(file)
+  .then((response) => {
+    if(response.data.resultCode === 0) {
+      dispatch(savePhotoSuccess(response.data.data.photos));
     }
     
   })
