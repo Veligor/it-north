@@ -29,7 +29,7 @@ export let setAuthUserData = (id,login, email, isAuth) => {
   return {
     type: SET_USER_DATA, payload: { id, login, email, isAuth }
   };
-};
+}; 
 
 export const getAuthUserDataThunkCreator = () => (dispatch) => {
   
