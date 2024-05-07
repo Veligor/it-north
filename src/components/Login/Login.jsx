@@ -1,51 +1,3 @@
-//  import React from "react";
-// import { CustomForm } from "./Form";
-// import s from "./Login.module.css"
-// // const LoginForm = (props) => {
-// //   return (
-// //     <form>
-// //       <div>
-// //         <input placeholder={"login"} />
-// //       </div>
-// //       <div>
-// //         <input placeholder={"password"} />
-// //       </div>
-// //       <div>
-// //         <input type={"checkbox"} /> remember me
-// //       </div>
-// //       <div>
-// //         <button>Login</button>
-// //       </div>
-// //     </form>
-// //   );
-// // };
-// // const Login = (props) => {
-// //   return (
-// //     <div>
-// //       <h1>Login</h1>
-// //       <LoginForm />
-// //     </div>
-// //   );
-// // };
-
-
-
-
-// // export default Login;
-
-// // Render Prop
-
-
-// const Login = () => {
-  
-//   return (
-//     <div className={s.block}>
-//       <CustomForm />
-//     </div>
-//   )
-// }
-// export default Login;
-
 import s from "./Login.module.css"
 import React from 'react';
 import { Formik } from 'formik';
@@ -60,18 +12,19 @@ const validationSchema = yup.object().shape({
 })
 
 const Login = () => {
-
+  const captcha = useSelector((state) => state.auth.captcha)
   const isAuth = useSelector((state) => state.auth.isAuth)
   const dispatch = useDispatch()
  if(isAuth) {
   return <Navigate to={"/profile"}/>
  }
+ console.log(captcha)
  return <div>
   
     <h1>Enter login</h1>
     <Formik
     validationSchema={validationSchema}
-      initialValues={{ email: '', password: '', rememberMe: false }}
+      initialValues={{ email: '', password: '', rememberMe: false, captcha: '' }}
       // validate={values => {
       //   const errors = {};
       //   if (!values.email) {
@@ -84,9 +37,9 @@ const Login = () => {
       //   return errors;
       // }}
       onSubmit={(values, { setSubmitting }) => {
-        const {email,password,username} = values
+        const {email,password,username, captcha} = values
        // dispatch(login(values.email, values.password, values.rememberMe))
-        dispatch(login(email,password,username))
+        dispatch(login(email,password,username, captcha))
         //console.log(values)
           // alert(JSON.stringify(values, null, 2));
            setSubmitting(false);
@@ -129,6 +82,16 @@ const Login = () => {
             onBlur={handleBlur}
             value={values.checkbox}
           />
+         <div> { captcha && <img src={captcha} className={s.captcha}/> }</div>
+          
+         <div> { captcha &&  <input
+            type="text"
+            name="captcha"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder='Symbol from image'
+          />   }</div>
+          
           {errors.password && touched.password && errors.password}
           <button type="submit" disabled={isSubmitting} >
             Войти

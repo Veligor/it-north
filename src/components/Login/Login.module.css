@@ -4,3 +4,6 @@
   color: rosybrown;
   margin: 50px;
 }
+.captcha {
+  max-width: 200px;
+}
