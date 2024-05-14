@@ -36,12 +36,16 @@ if(!iditialiazed) {
       <div className="app-wrapper-content">
       <Suspense fallback={<div><Preloader /></div>}>
         <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/profile" element={<ProfileContainer />} />
         <Route path="/profile/:profileId" element={<ProfileContainer />} />
         <Route path="/dialogs" element={ <DialogsContainer />} />
         <Route path="/users" element={<UsersContainer />} />
+        <Route path="/login/facebook" element={<div>strong</div>} />
         <Route path="/login" element={<Login />} />
         <Route path="/news" element={<News />} />
+        <Route path="*" element={<div>404 Page not found</div>} />
+
         </Routes>
         </Suspense>
       </div>

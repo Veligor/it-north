@@ -12,11 +12,11 @@ let initialState = {
 }; 
 
 const authReducer = (state = initialState, action) => {
-  debugger
+  
   switch (action.type) {
     case SET_USER_DATA: 
     case GET_CAPTCHA_URL:
-      // debugger
+     
     return {
       ...state, ...action.payload
     }
@@ -63,7 +63,7 @@ export const login = (email, password, rememberMe, captcha ) => (dispatch) => {
     if(response.data.resultCode === 0) {
       dispatch(getAuthUserDataThunkCreator())
     } else if (response.data.resultCode === 10) {
-      // debugger
+      
       dispatch(getCaptchUrl())
     }
   });

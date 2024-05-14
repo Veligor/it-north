@@ -107,7 +107,9 @@ export const savePhoto = (file) => (dispatch) => {
 export const saveProfile = (profile) => (dispatch, getState) => {
 const profileId =  getState().auth.id
   return profileApi.saveProfile(profile).then((response) => {
+  
     if (response.data.resultCode === 0) {
+     
      dispatch(getUserProfileCreator(profileId));
     }
   });

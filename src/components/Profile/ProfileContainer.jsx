@@ -12,7 +12,7 @@ const ProfileContainer = (props) => {
  if(!profileId) {
   profileId =  props.yourSelfId
    if(!profileId) {
-    profileId = 29369  
+    profileId = 29369   
 }
   }
 
@@ -21,7 +21,7 @@ const ProfileContainer = (props) => {
     props.getUserProfileCreator(profileId)
     props.getStatusCreator(profileId)
   }, [profileId]); 
-   console.log( profileId)
+ 
   //if(!props.isAuth ) return <Navigate to={"/login"}/>
     return <>
     
