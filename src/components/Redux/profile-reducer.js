@@ -10,9 +10,9 @@ const SAVE_PHOTO_SUCCESS = "SAVE-PHOTO-SUCCESS";
 let initialState = {
   newPostText: "sunny",
   postData: [
-    { id: 1, message: "Hi, how are you?", like: "5" },
-    { id: 2, message: "Your clean car", like: "12" },
-    { id: 3, message: "Welcome", like: "6" },
+    { id: 1, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "5" },
+    { id: 2, message: "I always tell the truth. Even when I lie", like: "12" },
+    { id: 3, message: "Never explain anything to anyone - everyone will still understand in a way that is beneficial to them.", like: "6" },
   ],
   profile: null,
   status: "",
