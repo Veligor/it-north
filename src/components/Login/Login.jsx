@@ -6,9 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from "react-router-dom";
 import * as yup from 'yup'
 
+
 const validationSchema = yup.object().shape({
-  email: yup.string().required('Заполни Осел').email('Invalid email address'),
-  password: yup.string().required('OSEL')
+  email: yup.string().required('Заполните поле email').email('Invalid email address'),
+  password: yup.string().required('Заполните поле пароля')
 })
 
 const Login = () => {
@@ -18,24 +19,13 @@ const Login = () => {
  if(isAuth) {
   return <Navigate to={"/profile"}/>
  }
- console.log(captcha)
+
  return <div>
   
-    <h1>Enter login</h1>
+    <h1>Вход ВКонтакте</h1>
     <Formik
     validationSchema={validationSchema}
       initialValues={{ email: '', password: '', rememberMe: false, captcha: '' }}
-      // validate={values => {
-      //   const errors = {};
-      //   if (!values.email) {
-      //     errors.email = 'Required';
-      //   } else if (
-      //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      //   ) {
-      //     errors.email = 'Invalid email address';
-      //   }
-      //   return errors;
-      // }}
       onSubmit={(values, { setSubmitting }) => {
         const {email,password,username, captcha} = values
        // dispatch(login(values.email, values.password, values.rememberMe))
@@ -59,13 +49,17 @@ const Login = () => {
         /* and other goodies */
       }) => (
         <form onSubmit={handleSubmit} >
-          <input
+         <div className={s.enter}>
+         <div>
+         <input
             type="email"
             name="email"
             onChange={handleChange}
             onBlur={handleBlur}
+            placeholder='login'
             //value={values.email}
           />
+         </div>
           {errors.email && touched.email && errors.email}
           <input
             type="password"
@@ -75,13 +69,16 @@ const Login = () => {
            // value={values.password}
             placeholder='password'
           />  
-          <input
+         <div>
+         <input
             type="checkbox"
             name="rememberMe"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.checkbox}
-          />
+          />Сохранить ввод
+         </div>
+         </div>
          <div> { captcha && <img src={captcha} className={s.captcha}/> }</div>
           
          <div> { captcha &&  <input
@@ -93,7 +90,7 @@ const Login = () => {
           />   }</div>
           
           {errors.password && touched.password && errors.password}
-          <button type="submit" disabled={isSubmitting} >
+          <button type="submit" disabled={isSubmitting} className={s.button}>
             Войти
           </button>
         </form>

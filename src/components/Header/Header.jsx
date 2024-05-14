@@ -12,8 +12,8 @@ const Header = (props) => {
     <header className={s.header}>
     <img className={s.img} src="https://logos-marques.com/wp-content/uploads/2021/03/VK-Logo-2016.png"></img><b className={s.title}>ВКОНТАКТЕ</b>
     <div className={s.loginBlock}>
-      { props.isAuth ? <div>{props.login} - <button onClick={() => dispatch(logout())}>Выйти</button></div>
-      : <button><NavLink className={s.button} to={"/login"} >Войти</NavLink></button> }
+      { props.isAuth ? <div>{props.login} - <button className={s.button} onClick={() => dispatch(logout())}>Выйти</button></div>
+      : <button className={s.button}><NavLink className={s.button} to={"/login"} >Войти</NavLink></button> }
 
 
      

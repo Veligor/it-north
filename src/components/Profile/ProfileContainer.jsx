@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import {setUserProfile, getStatusCreator, getUserProfileCreator, upDateStatusCreator, savePhoto} from "./../Redux/profile-reducer";
 import { useLocation, useNavigate, useParams, useRouteMatch}  from "react-router-dom";
 import { compose } from "redux";
+import { Navigate } from "react-router-dom";
 
 const ProfileContainer = (props) => {
   
@@ -22,7 +23,7 @@ const ProfileContainer = (props) => {
     props.getStatusCreator(profileId)
   }, [profileId]); 
  
-  //if(!props.isAuth ) return <Navigate to={"/login"}/>
+  if(!props.isAuth ) return <Navigate to={"/login"}/>
     return <>
     
     <Profile {...props} savePhoto={props.savePhoto} isOwner={ profileId} profile={props.profile} status={props.status} upDateStatusCreator={props.upDateStatusCreator}/>;
