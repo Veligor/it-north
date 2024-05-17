@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 .blockError {
   border: red 1px solid;
   padding: 5px;
@@ -8,50 +15,92 @@
   max-width: 200px;
 }
 .enter {
-  margin-left: 20px;
+  /* margin-left: 20px; */
+  width: 420px;
+  padding: 30px 40px;
+  border-radius: 10px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color: #fff;
 }
-
-.button {
-  margin-bottom: 25%;
-  margin-top: 30px;
-  margin-left: 20px;
-  appearance: none;
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
-  border-radius: 15px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 16px;
-  font-weight: 600;
-  line-height: normal;
- 
-  min-height: 60px;
-  min-width: 0;
-  outline: none;
-  padding: 16px 24px;
+.enter h1 {
+  font-size: 36px;
   text-align: center;
-  text-decoration: none;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 20%;
-  will-change: transform;
+  color:darkslategray;
 }
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('https://reintech.io/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaVRPIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e61b20d50a15575343546c4ffda37bf5f594da1/d19fczvmlidmawvw3b64qesm305q') no-repeat;
+  background-position: center;
+ 
+}
+.form .inputBox {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+.inputBox {
+  width: 100%;
+  height:50px;
+ 
+  margin: 30px 0;
+}
+.inputBox input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255,255, .2);
+  border-radius: 40px;
+  font-size: 16px;
+  color:darkslategray;
+  padding: 20px 45px 20px 20px;
+}
+.inputBox input::placeholder {
+  color: #fff;
+  padding-left: 10px;
+   /* padding: 20px 45px 20px 20px; */
+} 
+.inputBox img {
+  width: 17px;
+  
+}
+.icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.rememberMe {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15.5px;
+  margin: -15px 0 15px;
+}
+.rememberMe label input {
+accent-color: #fff;
+margin-right: 5px;
+}
+.button {
+width: 100%;
+height: 45px;
+border: none;
+outline: none;
+border-radius: 40px;
+box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+cursor: pointer;
+font-size: 16px;
+color: #333;
+font-weight: 600;
 
-.button:disabled {
-  pointer-events: none;
-}
 
-.button:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  transform: translateY(-2px);
 }
-
-.button:active {
-  box-shadow: none;
-  transform: translateY(0);
-}
+/* buttonBox */

@@ -5,7 +5,7 @@ import {login} from "./../Redux/auth-reducer"
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from "react-router-dom";
 import * as yup from 'yup'
-
+import {natureForm} from "./../../photo/images/natureForm.jpg"
 
 const validationSchema = yup.object().shape({
   email: yup.string().required('Заполните поле email').email('Invalid email address'),
@@ -20,9 +20,9 @@ const Login = () => {
   return <Navigate to={"/profile"}/>
  }
 
- return <div>
+ return <div className={s.form}>
   
-    <h1>Вход ВКонтакте</h1>
+   
     <Formik
     validationSchema={validationSchema}
       initialValues={{ email: '', password: '', rememberMe: false, captcha: '' }}
@@ -50,7 +50,8 @@ const Login = () => {
       }) => (
         <form onSubmit={handleSubmit} >
          <div className={s.enter}>
-         <div>
+         <h1>Login</h1>
+         <div className={s.inputBox}>
          <input
             type="email"
             name="email"
@@ -59,9 +60,11 @@ const Login = () => {
             placeholder='login'
             //value={values.email}
           />
+          <img className={s.icon} src="https://icons.veryicon.com/png/o/miscellaneous/safe-and-rational-drug-use-operation-icon/user-input.png"/>
          </div>
           {errors.email && touched.email && errors.email}
-          <input
+         <div className={s.inputBox}>
+         <input
             type="password"
             name="password"
             onChange={handleChange}
@@ -69,15 +72,27 @@ const Login = () => {
            // value={values.password}
             placeholder='password'
           />  
-         <div>
+           <img className={s.icon} src="https://cdn-icons-png.flaticon.com/512/1580/1580796.png"/>
+         </div>
+
+         <div className={s.rememberMe}>
+         <label>
          <input
             type="checkbox"
             name="rememberMe"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.checkbox}
-          />Сохранить ввод
+          />Remember me
+         </label>
          </div>
+        {errors.password && touched.password && errors.password}
+          <div className={s.buttonBox}>
+          <button type="submit" disabled={isSubmitting} className={s.button}>
+            Login
+          </button>
+          </div>
+         
          </div>
          <div> { captcha && <img src={captcha} className={s.captcha}/> }</div>
           
@@ -89,10 +104,8 @@ const Login = () => {
             placeholder='Symbol from image'
           />   }</div>
           
-          {errors.password && touched.password && errors.password}
-          <button type="submit" disabled={isSubmitting} className={s.button}>
-            Войти
-          </button>
+          
+         
         </form>
       )}
     </Formik>
