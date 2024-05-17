@@ -10,4 +10,65 @@
 .avatar {
    border-radius: 100px;
   
-}
+} 
+.profileImgContainer {
+   position: relative;
+   height: 220px;
+ }
+ .profileImgContainer:hover .overlay {
+   display: block;
+   background: rgba(0, 0, 0, .3);
+ }
+ .profileImgContainer img {
+   position: absolute;
+   width: 200px;
+   height: 200px;
+   left: 0;
+ }
+ .profileImgContainer .btn {
+  position: absolute;
+  width: 500px;
+  left:0;
+  top: 180px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease;
+ }
+ 
+ .profileImgContainer:hover .btn  {
+
+   opacity: 0.8;
+
+   /* border: 1px solid #ccc;
+   display: inline-block;
+   padding: 6px 12px;
+   cursor: pointer; */
+
+
+  /* position: relative;
+  top: 150px;
+  font-family: calibri;
+  width: 132px;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border: 1px dashed #BBB;
+  text-align: center;
+  background-color: #DDD;
+  cursor: pointer; */
+
+
+ }
+ .btn::-webkit-file-upload-button {
+   color: white;
+   display:inline-block;
+   background: #1CB6E0;
+   border: none;
+   padding: 7px 15px;
+   font-weight: 700;
+   border-radius: 3px;
+   white-space: nowrap;
+   cursor: pointer;
+   font-size: 10pt;
+   border-radius: 10px;
+ }

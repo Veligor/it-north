@@ -14,19 +14,28 @@ const ProfileInfo = (props) => {
   return (
     <div>
       <div className={s.description}>
-        <img 
+       <div className={s.profileImgContainer}>
+
+      <div className={s.iconWrapper}>
+      <img 
           src={props.profile.photos.large || userPhoto}
           className={s.avatar}
         />
+         <div className={s.overlay}></div>
+      </div>
         {props.isOwner === 29369 && (
-          <input type={"file"} onChange={onMainPhotoSelected} />
+          <input type={"file"} size='60' onChange={onMainPhotoSelected} className={s.btn}/>
         )}
-        {editMode ? <ProfileDataForm setEditMode={setEditMode} profile={props.profile} /> : <ProfileData profile={props.profile} isOwner={props.isOwner} goToEditMode={() => setEditMode(true)}/>}
+       </div>
+      <div className={s.editMode}>
+
+      {editMode ? <ProfileDataForm setEditMode={setEditMode} profile={props.profile} /> : <ProfileData profile={props.profile} isOwner={props.isOwner} goToEditMode={() => setEditMode(true)}/>}
        
-        <ProfileStatusWithHooks
-          status={props.status}
-          upDateStatusCreator={props.upDateStatusCreator}
-        />
+       <ProfileStatusWithHooks
+         status={props.status}
+         upDateStatusCreator={props.upDateStatusCreator}
+       />
+      </div>
       </div>
      
     </div>
