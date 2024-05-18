@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import {saveProfile} from "./../Redux/profile-reducer"
+import s from "./ProfileEditData.module.css"
 
 export const ProfileDataForm = (props) => {
   const dispatch = useDispatch()
@@ -23,19 +24,19 @@ export const ProfileDataForm = (props) => {
       }} 
          >
       {({ isSubmitting }) => (
-        <Form>
-      <div> <b>FullName: </b>   <Field type="text" name="FullName" placeholder="Full name"/></div>
-        <div><b>Looking for a job: </b> <Field type="checkbox" name="lookingForAJob" /> </div>
-  <div><b> My professions skills: </b>     <Field as="textarea" name="lookingForAJobDescription"  placeholder="My professions skills"/> </div>
-  <div><b> About me: </b> <Field as="textarea" name="aboutMe"  placeholder="About Me"/> </div>
-{/* <div> <button type="submit"  onClick={() => {}}>
-            Save
-          </button></div> */}
-          {/* Contacts:{" "} */}
+        <Form className={s.form}>
+      <div> <b>FullName: </b>   <Field type="text" name="FullName" placeholder="Full name" className={s.fullName}/></div>
+        <div><b>Looking for a job: </b> <Field type="checkbox" name="lookingForAJob" className={s.check}/> </div>
+    <div className={s.container}>
+    <div><b> My professions skills: </b>     <Field as="textarea" className={s.textArea} name="lookingForAJobDescription"  placeholder="My professions skills"/> </div>
+  <div><b> About me: </b> <Field as="textarea" className={s.textArea} name="aboutMe"  placeholder="About Me"/> </div>
+
+    </div>
+
         {Object.keys(props.profile.contacts).map((key) => {
           return <div><b>{key}:  <div><Field type="text" name={`contacts.${key}`} placeholder={key}/></div></b></div>
         })}
-<div> <button type="submit"  onClick={() => {}}>
+<div className={s.btn}> <button type="submit" className={s.btnOne}>
             Save
           </button></div>
 {/* 
