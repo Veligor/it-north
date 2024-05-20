@@ -1,7 +1,7 @@
 .header {
   display: grid;
   grid-area: h;
-  background-color: #81d4fa;
+  background-color:rgb(250, 250, 250);
   font-family: sans-serif;
   grid-template-columns: repeat(2, 1fr) 6fr;
   }

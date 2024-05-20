@@ -17,12 +17,14 @@ const MyPosts = memo(function MyPosts (props)  {
     let text = newTextElement.current.value;
     props.updateNewPostText(text);
   };
+ 
   return (
     <div className={s.postBlock}>
-      MyPosts
+     
       <div>
         <div>
           <textarea
+          className={s.textArea}
             onChange={onPostChange}
             ref={newTextElement}
             value={props.profilePage.newPostText}

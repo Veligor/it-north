@@ -1,12 +1,18 @@
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .nav {
   grid-area: n;
-  background-color: brown;
+  background-color:#ecf0f1;
   padding: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .item a{
-    color: white;
+    color:rgb(40, 40, 40);
     text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   } 
   .item a.activeLink {
     color: gold;

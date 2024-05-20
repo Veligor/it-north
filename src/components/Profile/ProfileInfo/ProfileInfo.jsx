@@ -42,8 +42,8 @@ const ProfileInfo = (props) => {
   );
 };
 const ProfileData = (props) => {
-  return <div>
-   { props.isOwner === 29369 && <div><button onClick={props.goToEditMode}>Edit</button></div> }
+  return <div className={s.profileData}>
+   { props.isOwner === 29369 && <div><button onClick={props.goToEditMode} className={s.button}>Edit</button></div> }
      <div>
         Full Name: <b>{props.profile.fullName}</b>
       </div>

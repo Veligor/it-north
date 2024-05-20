@@ -1,0 +1,43 @@
+* {
+   font-family: Verdana;
+ }
+.status {
+   margin: 20px 20px 10px 20px;
+   font-family: Verdana;
+   width: 150px;
+   border-radius: 5px;
+}
+
+.span {
+   color: #000000;
+   padding: 3px;
+   font-size: 11px;
+   letter-spacing: 2px;
+   font-weight:700;
+  
+   
+}
+.span:hover {
+   cursor: pointer;
+   background-color:rgb(159, 159, 160);
+   border-radius: 5px;
+} 
+.container {
+max-width: 1200px;
+padding: 0 15px;
+margin:  0 auto;
+}
+.textField {
+padding: 10px 0;
+border: 0;
+outline: none;
+border-radius: 0;
+appearance: none;
+font-size: 18px;
+border-bottom: 1px solid rgb(159, 159, 159);
+color:  rgb(159, 159, 159);
+transition: border-color .3s;
+}
+.textField:focus {
+   margin-left: 5px;
+}

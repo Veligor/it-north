@@ -1,6 +1,33 @@
 .postBlock {
    padding: 10px;
-}
+} 
 .posts {
    margin-top: 10px;
+}
+.postBlock textarea:focus {
+ 
+   background-color: #ecf0f1;
+   border-radius: 10px;
+   height: 50px;
+   padding: 10px;
+   box-sizing: border-box;
+  
+}
+ /* .textArea::placeholder {
+   color: #ecf0f1;
+   border-radius: 10px;
+} */
+.textArea {
+   display: block;
+   width: 700px;
+   height: 40px;
+   margin: 0 auto;
+   resize: none;
+   outline: none;
+   background-color: #ecf0f1;
+   border-radius: 5px;
+   border-width: 1.5px;
+   text-align: center;
+   color: rgb(159, 159, 159);
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

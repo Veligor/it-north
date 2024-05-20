@@ -8,7 +8,7 @@ const SAVE_PHOTO_SUCCESS = "SAVE-PHOTO-SUCCESS";
 
 
 let initialState = {
-  newPostText: "sunny",
+  newPostText: "anything new?",
   postData: [
     { id: 1, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "5" },
     { id: 2, message: "I always tell the truth. Even when I lie", like: "12" },
