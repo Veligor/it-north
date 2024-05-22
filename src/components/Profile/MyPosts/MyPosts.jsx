@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import al from "./../../../photo/images/All.jpg"
+
 
 const MyPosts = memo(function MyPosts (props)  {
   let newTextElement = React.createRef();

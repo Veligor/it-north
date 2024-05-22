@@ -45,7 +45,7 @@ if(!iditialiazed) {
         <Route path="/login" element={<Login />} />
         <Route path="/news" element={<News />} />
         <Route path="*" element={<div>404 Page not found</div>} />
-
+        <Route path="/dialogs/1" element={ <DialogsContainer />} />
         </Routes>
         </Suspense>
       </div>

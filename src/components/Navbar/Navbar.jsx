@@ -20,7 +20,7 @@ const Navbar = (props) => {
           Profile
         </NavLink>
       </div>
-      <div className={s.item} >
+      <div className={s.item} > 
       <BiChat  className={s.icons}/>
         <NavLink to="/dialogs" className={SelectedClass}>
           Message
@@ -46,7 +46,7 @@ const Navbar = (props) => {
      <div className={s.friend}>
   
     {friendsSheet}
-    <div className={s.onlineTitle}>friens online</div>
+    <div className={s.onlineTitle}>friends online</div>
      </div>
     </nav>
   );

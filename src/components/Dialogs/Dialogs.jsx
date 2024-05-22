@@ -28,11 +28,16 @@ const Dialogs = (props) => {
       <div className={s.human}>{dialogsElements} 
       </div>
       <div className={s.messages}>
-        <div>{messagesElements}</div>
         <div>
-        <textarea value={props.dialogPage.newMessageText} onChange={onNewMessageChange}></textarea>
+
+        <div>{messagesElements}</div>
+        <div className={s.blockTextArea}>
+        <textarea value={props.dialogPage.newMessageText} onChange={onNewMessageChange} className={s.textArea}></textarea>
+        <button  onClick={onSendMessageClick} className={s.btn}>addMessage</button>
         </div>
-        <div><button onClick={onSendMessageClick}>addMessage</button></div>
+
+        </div>
+       
         </div>
     </div>
   );
