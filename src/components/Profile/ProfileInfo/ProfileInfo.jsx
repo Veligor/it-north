@@ -21,7 +21,7 @@ const ProfileInfo = (props) => {
           src={props.profile.photos.large || userPhoto}
           className={s.avatar}
         />
-         <div className={s.overlay}></div>
+       
       </div>
         {props.isOwner === 29369 && (
           <input type={"file"} size='60' onChange={onMainPhotoSelected} className={s.btn}/>
@@ -43,9 +43,11 @@ const ProfileInfo = (props) => {
 };
 const ProfileData = (props) => {
   return <div className={s.profileData}>
-   { props.isOwner === 29369 && <div><button onClick={props.goToEditMode} className={s.button}>Edit</button></div> }
-     <div>
-        Full Name: <b>{props.profile.fullName}</b>
+
+
+  { props.isOwner === 29369 && <div className={s.btnDiv}><button onClick={props.goToEditMode} className={s.button}>Edit</button></div> }
+     <div className={s.fullName}>
+        <h> {props.profile.fullName}</h>
       </div>
       <div>looking for a job: {props.lookingForAJob
  ? "No" : "Yes"}</div>
@@ -55,7 +57,7 @@ const ProfileData = (props) => {
         </div>
       )}
       <div>About Me: {props.profile.aboutMe}</div>
-      <div>
+      <div className={s.contacts}>
         Contacts:{" "}
         {Object.keys(props.profile.contacts).map((key) => {
           return (
@@ -67,6 +69,8 @@ const ProfileData = (props) => {
           );
         })}
       </div>
+
+ 
   </div>
 }
 

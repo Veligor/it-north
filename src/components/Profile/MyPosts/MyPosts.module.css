@@ -1,11 +1,12 @@
 .postBlock {
    padding: 10px;
 } 
+
 .posts {
    margin-top: 10px;
 }
 .postBlock textarea:focus {
- 
+   color: rgb(40,40,40);
    background-color: #ecf0f1;
    border-radius: 10px;
    height: 50px;
@@ -26,8 +27,51 @@
    outline: none;
    background-color: #ecf0f1;
    border-radius: 5px;
-   border-width: 1.5px;
+   background-color: #ecf0f1;
    text-align: center;
    color: rgb(159, 159, 159);
    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.blockTextArea  {
+   display: inline-block;
+   position: relative;
+}
+.btn {
+   position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+
+    text-decoration: none;
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 0px;
+    max-width: 280px;
+    min-height: 20px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+}
+.btn:hover,
+.btn:focus { 
+  background-color: #16437E;
+  color: #ffffff;
 }

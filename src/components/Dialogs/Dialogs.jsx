@@ -10,7 +10,7 @@ const Dialogs = (props) => {
   
   let onNewMessageChange = (event) => {
     let body = event.target.value
-    props.newMessageChange(body);
+    props.newMessageChange(body); 
   }
   let onSendMessageClick = () => {
     props.sendMessageClick()

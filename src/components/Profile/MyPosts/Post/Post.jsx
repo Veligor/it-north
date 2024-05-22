@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Post.module.css";
 import al from "./../../../../photo/images/All.jpg"
+import { AiOutlineHeart } from "react-icons/ai";
 
 const Post = (props) => {
   return (
@@ -12,10 +13,10 @@ const Post = (props) => {
         <img src="https://i.pinimg.com/originals/37/76/4a/37764a2abe35ecc9d02652fd07fb8767.jpg" alt="postPhoto"></img>{" "}
     </div>
      <div className={s.likePost}>
-          <span>like {props.like}</span>
+          <div className={s.spanLike}><AiOutlineHeart className={s.icon}/><span>{props.like}</span></div>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };  
 

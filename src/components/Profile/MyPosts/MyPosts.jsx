@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-
+import al from "./../../../photo/images/All.jpg"
 
 const MyPosts = memo(function MyPosts (props)  {
   let newTextElement = React.createRef();
@@ -19,23 +19,26 @@ const MyPosts = memo(function MyPosts (props)  {
   };
  
   return (
-    <div className={s.postBlock}>
+   <div>
+     <div className={s.postBlock}>
      
-      <div>
-        <div>
-          <textarea
-          className={s.textArea}
-            onChange={onPostChange}
-            ref={newTextElement}
-            value={props.profilePage.newPostText}
-          />
-        </div>
-        <div>
-          <button onClick={onAddPost}>Add Post</button>
-        </div>
-      </div>
-      <div className={s.posts}>{postElement}</div>
-    </div>
+    
+       <div className={s.blockTextArea}>
+        
+         <textarea
+        //  placeholder={al}
+         className={s.textArea}
+           onChange={onPostChange}
+           ref={newTextElement}
+           value={props.profilePage.newPostText}
+         />
+         <button className={s.btn} onClick={onAddPost}>Add Post</button>
+       </div>
+        <div className={s.posts}>
+                {postElement}
+           </div>
+   </div>
+  </div>
   );
 })
 

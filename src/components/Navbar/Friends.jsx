@@ -1,16 +1,23 @@
 import React from "react";
 import s from "./Friends.module.css";
+import { IoMdPhonePortrait } from "react-icons/io";
 
 let Friends = (props) => {
    return (
-     <div>
-       <div className={s.circle}>
-         <img src="https://d1whtlypfis84e.cloudfront.net/guides/wp-content/uploads/2018/02/05091656/Picture-1.png" />
-         <div>
-           <span>{props.name}</span>
-         </div>
-       </div>
+   
+<div className={s.friend}>
+  
+    
+       
+       <IoMdPhonePortrait className={s.icons}/>
+       <span className={s.name}>{props.name}</span>
+        
+           {/* <span>{props.name}</span> */}
+         
+       
      </div>
+
+    
    );
  };
  

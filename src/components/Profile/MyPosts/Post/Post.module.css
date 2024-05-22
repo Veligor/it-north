@@ -15,8 +15,8 @@
   display: flex;
   flex-direction:column;
   width: 500px;
-  background-color: rgb(245,245,245);
-  border: 1px solid rgb(250,0250,250);
+  background-color:  rgb(255,250,250);
+  border: 1px solid rgb( 245,245,245);
   margin-left: 100px;
   border-radius: 10px;
 }
@@ -59,7 +59,30 @@
 padding-top: 10px;
 }
 .likePost {
+  display: flex;
+  
   flex: 1;
   color: rgb(66,170,255);
   /* background-image: repeating-linear-gradient(to bottom right,rgb(0, 196, 244) 0%,rgb(3, 96, 120) 100%); */
+}
+.icon {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  font-size: 23px;
+}
+.spanLike:hover {
+  color: #2c2c2c;
+}
+.spanLike {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d3d3;
+  border-radius: 18px;
+  padding: 7px 20px 7px 20px;
+  margin: 0 0 5px 5px;
+  color: #6a6a6a;
 }
