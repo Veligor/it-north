@@ -1,10 +1,106 @@
-.main img {
-   width: 150px;
-   height: 150px;
-}
-.active {
-   font-weight: 700;
+.containerUser img {
+   width: 200px;
+   height: 200px;
 }
 .paginator {
    margin: 10px;
 }
+.containerUser {
+   display: flex;
+   flex-wrap: wrap;
+ justify-content: space-evenly;
+ 
+}
+.containerUser * {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.btb {
+   margin: 5px 5px 5px 5px;
+   border-radius: 18px;
+   /* border: 1px solid #a0a0a0; */
+   background-color:rgb( 255,255,255 );
+}
+.users {
+   margin: 5px;
+}
+.btn {
+   background-color: #000000;
+   border-radius: 50px;
+   border-width: 0;
+   box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+   color: #fff;
+   cursor: pointer;
+   /* display: inline-block; */
+   font-family: Arial, sans-serif;
+   font-size: 1em;
+   height: 30px;
+   padding: 0 25px;
+   transition: all 200ms;
+   font: Arial 16px;
+   font-family: Verdana;
+   margin: 0 0 8px 0;
+}
+.btn:hover {
+   color: rgb(104, 108, 94)
+   }
+   .btnUnfollow {
+      background-color:#0A66C2;
+      border-radius: 50px;
+      border-width: 0;
+      box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+      color: #fff;
+      cursor: pointer;
+      /* display: inline-block; */
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+      height: 30px;
+      padding: 0 25px;
+      transition: all 200ms;
+      font: Arial 16px;
+      font-family: Verdana;
+      margin: 0 0 8px 0;
+   }
+   .btnUnfollow:hover {
+     color: rgb(136, 112, 107)
+   } 
+   .name {
+     color:rgb(40, 40, 40 ) 
+   }
+   .paginator {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+   }
+   .numberPaginator {
+      padding: 8px 16px;	
+      background-color:rgb(128,128,128);
+      border-radius: 50px;
+      cursor: pointer;
+   }
+   .act {
+      font-weight: 700;
+      border-radius: 50px;
+   }
+   .next:hover {
+   cursor: pointer;
+   background-color: #0A66C2;
+   border:   1px solid rgb( 255,255,255 ) ;
+   background-color:rgb(128,128,128);
+   }
+   .prev:hover {
+      cursor: pointer;
+      background-color: #0A66C2;
+      background-color:rgb(128,128,128);
+   }
+   .prev, .next { 
+      padding: 5px;
+      border-radius: 20px;
+      font-size: 15px;
+      border: 1px solid rgb( 255,255,255 );
+       background-color:rgb(220,220,220);
+       
+   }
+   .numberPaginator:hover {
+    background-color:rgb(220,220,220);
+   
+   }

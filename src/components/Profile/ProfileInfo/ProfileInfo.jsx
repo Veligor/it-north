@@ -10,7 +10,7 @@ const ProfileInfo = (props) => {
     if (e.target.files.length) {
       props.savePhoto(e.target.files[0]);
     }
-  };
+  }; 
   return (
     <div>
       <div className={s.description}>
