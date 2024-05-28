@@ -16,17 +16,15 @@ export const ProfileDataForm = (props) => {
       
 
       onSubmit={(values, { setSubmitting }) => {
-        
         dispatch(saveProfile(values))
-        props.setEditMode(false)
+        props.setEditMode(false) 
         console.log(values)
-       
       }} 
          >
       {({ isSubmitting }) => (
         <Form className={s.form}>
       <div> <b>FullName: </b>   <Field type="text" name="FullName" placeholder="Full name" className={s.fullName}/></div>
-        <div><b>Looking for a job: </b> <Field type="checkbox" name="lookingForAJob" className={s.check}/> </div>
+        <div><b>Looking for a job: </b> <label><Field type="checkbox" name="lookingForAJob" className={s.checkBoxInput}/></label> </div>
     <div className={s.container}>
     <div><b> My professions skills: </b>     <Field as="textarea" className={s.textArea} name="lookingForAJobDescription"  placeholder="My professions skills"/> </div>
   <div><b> About me: </b> <Field as="textarea" className={s.textArea} name="aboutMe"  placeholder="About Me"/> </div>

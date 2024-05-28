@@ -19,11 +19,12 @@
   background-color: #b1d5e5;
 }
 .form .check {
-  accent-color: #fff;
+  /* accent-color: #fff;
   margin-right: 5px;
   width: 30px;
   height: 15px;
-  box-shadow: 0 0 0 2px #2b60d2;
+  box-shadow: 0 0 0 2px #2b60d2; */
+  
 }
 /* .form .input:focus {
   
