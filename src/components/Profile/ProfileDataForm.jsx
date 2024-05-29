@@ -24,8 +24,8 @@ export const ProfileDataForm = (props) => {
       {({ isSubmitting }) => (
         <Form className={s.form}>
       <div> <b>FullName: </b>   <Field type="text" name="FullName" placeholder="Full name" className={s.fullName}/></div>
-        <div><b>Looking for a job: </b> <label><Field type="checkbox" name="lookingForAJob" className={s.checkBoxInput}/></label> </div>
-    <div className={s.container}>
+        <div className={s.fieldSlaider}><b>Looking for a job: </b> <label><Field type="checkbox" name="lookingForAJob" className={s.checkBoxInput}/></label> </div>
+    <div className={s.container}> 
     <div><b> My professions skills: </b>     <Field as="textarea" className={s.textArea} name="lookingForAJobDescription"  placeholder="My professions skills"/> </div>
   <div><b> About me: </b> <Field as="textarea" className={s.textArea} name="aboutMe"  placeholder="About Me"/> </div>
 

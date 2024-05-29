@@ -15,14 +15,10 @@ const ProfileInfo = (props) => {
     <div>
       <div className={s.description}>
        <div className={s.profileImgContainer}>
-
-      <div className={s.iconWrapper}>
       <img 
           src={props.profile.photos.large || userPhoto}
           className={s.avatar}
         />
-       
-      </div>
         {props.isOwner === 29369 && (
           <input type={"file"} size='60' onChange={onMainPhotoSelected} className={s.btn}/>
         )}
@@ -44,10 +40,8 @@ const ProfileInfo = (props) => {
 const ProfileData = (props) => {
   return <div className={s.profileData}>
 
-
-  { props.isOwner === 29369 && <div className={s.btnDiv}><button onClick={props.goToEditMode} className={s.button}>Edit</button></div> }
      <div className={s.fullName}>
-        <h> {props.profile.fullName}</h>
+        <h className={s.letterSpacing}> {props.profile.fullName}</h>
       </div>
       <div>looking for a job: {props.lookingForAJob
  ? "No" : "Yes"}</div>
@@ -70,7 +64,7 @@ const ProfileData = (props) => {
         })}
       </div>
 
- 
+      { props.isOwner === 29369 && <div className={s.btnDiv}><button onClick={props.goToEditMode} className={s.button}>Edit</button></div> }
   </div>
 }
 

@@ -18,16 +18,19 @@
     justify-self: start;
     align-self: center;
   }
-  .header img {
-    width: 50px;
+  .header .img {
+    margin-right: 0.5em;
+    color: #0A66C2;
   }
   .loginBlock {
     align-self: center;
     margin-right: 2%;
     color:black;
   }
- 
-     .button {
+  .loginNeme {
+    margin-right: 0.5rem;
+  }
+ .button {
       text-decoration: none;
        align-items: center;
        background-color: #0A66C2;

@@ -4,11 +4,15 @@ import { NavLink } from "react-router-dom";
 import s from "./Header.module.css"
 import {logout} from "./../Redux/auth-reducer"
 import { SlSocialFacebook } from "react-icons/sl";
+import { IoIosLogOut } from "react-icons/io";
+import { connect, useSelector } from "react-redux";
+import { CiLogout } from "react-icons/ci";
 
 const Header = (props) => {
 
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  //  const usePhoto = useSelector((state) =>  state.profilePage.profile.photos.large)
+ 
     return (
     <header className={s.header}>
  <div className={s.firstBlock}>
@@ -18,9 +22,11 @@ const Header = (props) => {
 
  </div>
     <div className={s.loginBlock}>
-      { props.isAuth ? <div><span>{props.login}</span> - <button className={s.button} onClick={() => dispatch(logout())}>Выйти</button>
+      { props.isAuth ? <div><span className={s.loginNeme}>{props.login}</span>    
+      
+      <button className={s.button} onClick={() => dispatch(logout())}> <IoIosLogOut /></button>
       </div>
-      : <button className={s.button}><NavLink className={s.button} to={"/login"} >Войти</NavLink></button> }
+      : <button className={s.button}><NavLink className={s.button} to={"/login"} ><CiLogout/></NavLink></button> }
 
 
      

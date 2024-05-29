@@ -14,9 +14,9 @@
    font-size: 11px;
    letter-spacing: 2px;
    font-weight:700;
-  
-   
+    width: 100%;
 }
+
 .span:hover {
    cursor: pointer;
    background-color:rgb(159, 159, 160);
