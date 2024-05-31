@@ -91,3 +91,54 @@ button:focus {
   transform: scale(1.05);
   font-family: Verdana;
 }
+
+
+.fieldSlaider {
+  display: inline-block;
+
+}
+.checkBoxInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  appearance: none;
+}
+.checkboxInner {
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+ padding: 8px;
+ padding-left: 74px;
+}
+.checkboxInner::before {
+display: block;
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+width: 60px;
+height: 36px;
+border-radius: 18px;
+background-color: #fff;
+transition: background-color .3s;
+}
+.checkboxInner::after {
+ display: block;
+ content: '';
+ position: absolute;
+ width: 30px;
+ height: 30px;
+ border-radius: 15px;
+ background-color:rgb(0, 201, 7);
+ left: 3px;
+ top: 3px;
+ transition: background-color .3s left .3s;
+}
+.checkBoxInput:checked + .checkboxInner::before {
+  background-color: rgb(0, 201, 7);
+}
+.checkBoxInput:checked + .checkboxInner::after {
+  background-color: white;
+  left: 27px;
+}
