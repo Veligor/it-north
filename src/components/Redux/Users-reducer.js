@@ -1,5 +1,5 @@
 import {userApi} from "./../api/api";
-
+const SET_INFINITE_USERS = "SET_INFINITE_USERS";
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW"; 
 const SET_USERS = "SET-USERS";
@@ -9,8 +9,9 @@ const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 const TOGGLE_FOLLOWING_IN_PROGRESS = "TOGGLE-FOLLOWING-IN-PROGRESS";
 
 let initialState = {
+ // infiniteUser: [],
    users: [],
-   pageSize: 24,
+   pageSize: 12,
    totalUserCount: 0,
    currentPage: 1,
    isFetching: false,
@@ -40,9 +41,13 @@ const usersReducer = (state = initialState, action) => {
           })  
         }
         case SET_USERS: {
+        
           return { ...state,  users: [...action.users ]  }
         }
-        case SET_CURRENT_PAGE: {
+        case SET_INFINITE_USERS: {
+          return { ...state,  users:[...state.users, ...action.payload]  }
+        }
+        case SET_CURRENT_PAGE: { 
           return {...state, currentPage: action.currentPage}
         }
         case TOTAL_USER_COUNT: {
@@ -72,6 +77,18 @@ export const getUsersThunkCreator = (currentPage, pageSize) =>  {
         dispatch(setIsFetching(false))
         dispatch(setUsers(response.items));
         dispatch(setTotalUserCount(response.totalCount));
+      });
+   }
+}
+export const scrollInfiniteThunkCreator = (page, size) =>  {
+
+  return (dispatch) => {
+      //dispatch(setIsFetching(true))
+      userApi.scrollUsersInfinite(page, size)
+      .then((response) => {
+       // dispatch(setIsFetching(false))
+        dispatch(setInfiniteScroll(response.items));
+        //dispatch(setTotalUserCount(response.totalCount));
       });
    }
 }
@@ -122,3 +139,4 @@ export let setCurrentPage = (currentPage) => { return {   type: SET_CURRENT_PAGE
 export let setTotalUserCount = (totalCount) => { return {   type: TOTAL_USER_COUNT,   totalCount } };
 export let setIsFetching = (isFetching) => { return {   type: TOGGLE_IS_FETCHING,   isFetching } };
 export let toggleFollowingProgress = (isFetching, userId) => { return {   type: TOGGLE_FOLLOWING_IN_PROGRESS,   isFetching , userId} };
+export let setInfiniteScroll = (payload) => { return {   type: SET_INFINITE_USERS,   payload} };

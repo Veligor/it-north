@@ -24,7 +24,7 @@ function loadMore () {
   return (
     <>
       <VirtuosoGrid
-        style={{ height: 600}}
+        style={{ height: 800}}
         data={props.users}
         totalCount={10000}
         context={{ isScrolling }}

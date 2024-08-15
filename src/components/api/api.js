@@ -6,16 +6,22 @@ let instance = axios.create({
    baseURL: "https://social-network.samuraijs.com/api/1.0/",
    withCredentials: true,
    headers: {"API-KEY": "edcf60fa-4038-40eb-83ca-e5d9a76769d5"}
-})
+}) 
 
 
 
 export const userApi = {
-   getUsers(currentPage = 1, pageSize = 5)  {
-   return instance.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+   getUsers(currentPage , pageSize )  {
+   return instance.get(`users?page=${currentPage}&count=${pageSize}`)
    .then(response => {
        return response.data
-     })
+     }) 
+ },
+   scrollUsersInfinite(page, size)  {
+   return instance.get(`users?page=${page}&count=${size}`)
+   .then(response => {
+       return response.data
+     }) 
  },
 follow(userId) {
   return instance.post(`follow/${userId}`)

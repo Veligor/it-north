@@ -5,7 +5,7 @@ const VALPOST = "VALPOST";
 const SET_USER_PROFILE = "SET-USER-PROFILE";
 const SET_STATUS = "SET-STATUS";
 const SAVE_PHOTO_SUCCESS = "SAVE-PHOTO-SUCCESS";
-
+const ADD_POST_INFIFINITE = "ADD-POST-INFIFINITE";
 
 let initialState = {
   newPostText: "anything new?",
@@ -13,6 +13,12 @@ let initialState = {
     { id: 1, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "5" },
     { id: 2, message: "I always tell the truth. Even when I lie", like: "12" },
     { id: 3, message: "Never explain anything to anyone - everyone will still understand in a way that is beneficial to them.", like: "15" },
+    // { id: 4, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "8" },
+    // { id: 5, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "22" },
+    // { id: 6, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "65" },
+    // { id: 7, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "54" },
+    // { id: 8, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "34" },
+    // { id: 9, message: "In case I'm needed, I'm right where I was when I wasn't needed.", like: "17" },
   ],
   profile: null,
   status: "",
@@ -48,6 +54,10 @@ const profileReducer = (state = initialState, action) => {
      
       return { ...state, profile: { ...state.profile, photos: action.photos } };
     }
+    case ADD_POST_INFIFINITE: {
+     
+      return { ...state, postData: [...state.postData, 0] };
+    }
    
 
     default:
@@ -78,6 +88,9 @@ export let setUserProfile = (profile) => {
 };
 export let savePhotoSuccess = (photos) => {
   return { type: SAVE_PHOTO_SUCCESS, photos };
+};
+export let setAddPostInfinite = () => {
+  return { type: ADD_POST_INFIFINITE };
 };
 
 export const getUserProfileCreator = (profileId) => (dispatch) => {
